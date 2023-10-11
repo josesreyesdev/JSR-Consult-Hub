@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="JSRConsultHub.Widget" />
+
+    <style name="JSRConsultHub.Widget.Button" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/background_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAppearance">@style/JSRConsultHub.TextStyle</item>
+    </style>
+
+    <style name="JSRConsultHub.Widget.Button.Google">
+        <item name="android:background">@drawable/background_login_google</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textAppearance">@style/JSRConsultHub.TextStyle</item>
+    </style>
+
+    <style name="JSRConsultHub.Widget.TextInputLayout">
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="hintEnabled">true</item>
+        <item name="hintTextAppearance">@style/JSRConsultHub.TextStyle</item>
+        <item name="colorControlNormal">@color/separator</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+    </style>
+</resources>

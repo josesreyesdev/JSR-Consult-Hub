@@ -1,14 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.authentication.login.LoginFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:padding="@dimen/space_large">
 
-</FrameLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/img_social_illustration"
+            app:layout_constraintBottom_toTopOf="@+id/form"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/newTextView"
+                style="@style/JSRConsultHub.TextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feat_login_new_jsr_consult_hub"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/register"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/register"
+                style="@style/JSRConsultHub.TextStyle.Link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_small"
+                android:text="@string/feat_login_register"
+                android:textColor="#448AFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/newTextView" />
+
+            <TextView
+                android:id="@+id/google"
+                style="@style/JSRConsultHub.Widget.Button.Google"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_large"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/space_xlarge"
+                android:text="@string/feat_login_google"
+                app:drawableStartCompat="@drawable/ic_google"
+                app:layout_constraintBottom_toTopOf="@id/register" />
+
+            <TextView
+                android:id="@+id/or"
+                style="@style/JSRConsultHub.TextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_small"
+                android:text="@string/feat_login_or"
+                app:layout_constraintBottom_toTopOf="@+id/google"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginEnd="@dimen/space_small"
+                android:background="@color/separator"
+                app:layout_constraintBottom_toBottomOf="@id/or"
+                app:layout_constraintEnd_toStartOf="@+id/or"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/or" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/space_small"
+                android:background="@color/separator"
+                app:layout_constraintBottom_toBottomOf="@id/or"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/or"
+                app:layout_constraintTop_toTopOf="@id/or" />
+
+            <Button
+                android:id="@+id/login"
+                style="@style/JSRConsultHub.Widget.Button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_standard"
+                android:layout_marginBottom="@dimen/space_small"
+                android:elevation="0dp"
+                android:text="@string/feat_login_login"
+                app:layout_constraintBottom_toTopOf="@id/or"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+
+            <TextView
+                android:id="@+id/forgotPassword"
+                style="@style/JSRConsultHub.TextStyle.Link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_medium"
+                android:text="@string/feat_login_forgot_password"
+                android:textColor="#448AFF"
+                app:layout_constraintBottom_toTopOf="@id/login"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="TextContrastCheck" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordInputLayout"
+                style="@style/JSRConsultHub.Widget.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_small"
+                android:hint="@string/feat_login_hint_password"
+                app:layout_constraintBottom_toTopOf="@id/forgotPassword"
+                app:passwordToggleDrawable="@drawable/selector_password_toggle"
+                app:passwordToggleEnabled="true"
+                app:startIconDrawable="@drawable/ic_password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
+                    style="@style/JSRConsultHub.Widget.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailInputLayout"
+                style="@style/JSRConsultHub.Widget.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_large"
+                android:hint="@string/feat_login_hint_username"
+                app:endIconMode="clear_text"
+                app:layout_constraintBottom_toTopOf="@id/passwordInputLayout"
+                app:startIconDrawable="@drawable/ic_email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    style="@style/JSRConsultHub.Widget.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/JSRConsultHub.TextStyle.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_large"
+                android:text="@string/feat_login_title"
+                app:layout_constraintBottom_toTopOf="@id/emailInputLayout"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
