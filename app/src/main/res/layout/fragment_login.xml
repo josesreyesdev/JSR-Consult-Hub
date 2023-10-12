@@ -33,12 +33,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/feat_login_new_jsr_consult_hub"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/register"
+                app:layout_constraintEnd_toStartOf="@id/guardar"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/register"
+                android:id="@+id/guardar"
                 style="@style/JSRConsultHub.TextStyle.Link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                 android:paddingHorizontal="@dimen/space_xlarge"
                 android:text="@string/feat_login_google"
                 app:drawableStartCompat="@drawable/ic_google"
-                app:layout_constraintBottom_toTopOf="@id/register" />
+                app:layout_constraintBottom_toTopOf="@id/guardar" />
 
             <TextView
                 android:id="@+id/or"
