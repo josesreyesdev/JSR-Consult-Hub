@@ -59,4 +59,20 @@
     <string name="feat_feed_profile_picture">Profile picture</string>
     <string name="feat_login_loading">Loading…</string>
     <string name="feat_login_error">Error: %s</string>
+
+    <!-- medic-->
+    <string name="feat_professional_title">Profesional</string>
+    <string name="add_name_professional">Nombre completo</string>
+    <string name="document">Documento</string>
+    <string name="feat_contact_title">Contacto</string>
+    <string name="add_email">E-mail</string>
+    <string name="add_phone">Teléfono o celular</string>
+    <string name="feat_professional_address_title">Dirección profesional</string>
+    <string name="add_street">Calle</string>
+    <string name="number">Número</string>
+    <string name="complement">Complemento</string>
+    <string name="add_city">Ciudad</string>
+    <string name="add_postal_code">Código postal</string>
+    <string name="register">Registrar</string>
+    <string name="cancel">Cancelar</string>
 </resources>

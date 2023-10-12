@@ -7,6 +7,11 @@
         <item name="fontFamily">@font/roboto_regular</item>
     </style>
 
+    <style name="JSRConsultHub.TextStyle.SubTitle">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="JSRConsultHub.TextStyle.Title">
         <item name="android:textSize">@dimen/text_size_big</item>
         <!--<item name="android:textColor">@color/textPrimary</item> -->

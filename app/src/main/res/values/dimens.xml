@@ -4,8 +4,10 @@
     <dimen name="space_medium">16dp</dimen>
     <dimen name="space_large">24dp</dimen>
     <dimen name="space_xlarge">36dp</dimen>
+    <dimen name="space_extra_big">56dp</dimen>
 
     <dimen name="text_size_big">28sp</dimen>
+    <dimen name="text_size_medium">24sp</dimen>
     <dimen name="text_size_small">12sp</dimen>
 
     <dimen name="radius_small">12dp</dimen>
