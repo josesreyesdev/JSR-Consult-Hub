@@ -82,4 +82,6 @@
     <string name="feat_datetime_title">Fecha y horario</string>
     <string name="date">Selecciona la fecha</string>
     <string name="time">Selecciona la hora</string>
+    <string name="date_text">%d/%d/%d</string>
+    <string name="time_text">%d: %d %s</string>
 </resources>
