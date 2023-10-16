@@ -1,4 +1,4 @@
-package com.jsrdev.jsrconsulthub.data.entities
+package com.jsrdev.jsrconsulthub.data.local.entity
 
 import androidx.room.ColumnInfo
 

@@ -1,12 +1,11 @@
-package com.jsrdev.jsrconsulthub.service.network
+package com.jsrdev.jsrconsulthub.data.network.api
 
+import com.jsrdev.jsrconsulthub.core.Constants.BASE_URL_CONSULT_HUB
+import com.jsrdev.jsrconsulthub.core.Constants.BASE_URL_POSTAL_CODE
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-
-private const val BASE_URL_CONSULT_HUB = "https://6c85-189-217-51-223.ngrok-free.app/"
-private const val BASE_URL_POSTAL_CODE = "https://api.copomex.com/query/"
 
 private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
@@ -22,13 +21,13 @@ object ConsultHubApi {
     private val retrofitConsultHub: Retrofit = provideRetrofit(BASE_URL_CONSULT_HUB)
     private val retrofitPostalCode: Retrofit = provideRetrofit(BASE_URL_POSTAL_CODE)
 
-    private fun <T> createService( retrofit: Retrofit, serviceClass: Class<T>): T {
+    private fun <T> retrofitService( retrofit: Retrofit, serviceClass: Class<T>): T {
         return retrofit.create(serviceClass)
     }
 
     /*val retrofitService: ConsultHubApiService by lazy {
-        createService( retrofitConsultHub, ConsultHubApiService::class.java)
+        retrofitService( retrofitConsultHub, ConsultHubApiService::class.java)
     }
 
-    val otherService = JsrApi.createService( retrofitPostalCode, OtherService::class.java) */
+    val otherService = ConsultHubApi.retrofitService( retrofitPostalCode, OtherService::class.java) */
 }

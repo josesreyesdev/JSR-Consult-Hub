@@ -1,9 +1,9 @@
-package com.jsrdev.jsrconsulthub.data.entities
+package com.jsrdev.jsrconsulthub.data.local.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.jsrdev.jsrconsulthub.data.utils.CancellationReason
+import com.jsrdev.jsrconsulthub.core.CancellationReason
 import java.time.LocalDateTime
 
 @Entity(tableName = "consults")

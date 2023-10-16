@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.jsrdev.jsrconsulthub.R
 import com.jsrdev.jsrconsulthub.databinding.FragmentAddMedicBinding
-import com.jsrdev.jsrconsulthub.data.utils.Specialty
+import com.jsrdev.jsrconsulthub.core.Specialty
 
 class AddMedicFragment : Fragment() {
 
