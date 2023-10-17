@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.jsrdev.jsrconsulthub.data.entity.*
 import com.jsrdev.jsrconsulthub.data.local.entity.Consult
 import com.jsrdev.jsrconsulthub.data.local.entity.Medic
 import com.jsrdev.jsrconsulthub.data.local.entity.Patient
