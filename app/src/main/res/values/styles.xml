@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="JSRConsultHub" />
+
+    <style name="JSRConsultHub.TextStyle">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="JSRConsultHub.TextStyle.SubTitle">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="JSRConsultHub.TextStyle.Title">
+        <item name="android:textSize">@dimen/text_size_big</item>
+        <!--<item name="android:textColor">@color/textPrimary</item> -->
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="JSRConsultHub.TextStyle.Link">
+        <item name="android:textColor">@color/textLink</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="datePickerTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorAccent">#A493C3</item>
+    </style>
+</resources>
