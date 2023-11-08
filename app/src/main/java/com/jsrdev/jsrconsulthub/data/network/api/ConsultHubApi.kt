@@ -10,8 +10,8 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
-private fun provideRetrofit(url: String): Retrofit {
-    return Retrofit.Builder()
+private val retrofit: (String) -> Retrofit = { url: String ->
+    Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .baseUrl(url)
         .build()
@@ -19,16 +19,12 @@ private fun provideRetrofit(url: String): Retrofit {
 
 object ConsultHubApi {
 
-    private val retrofitConsultHub: Retrofit = provideRetrofit(BASE_URL_CONSULT_HUB)
-    private val retrofitPostalCode: Retrofit = provideRetrofit(BASE_URL_POSTAL_CODE)
-
     private fun <T> retrofitService( retrofit: Retrofit, serviceClass: Class<T>): T {
         return retrofit.create(serviceClass)
     }
 
     val retrofitMedicService: MedicService by lazy {
-        retrofitService( retrofitConsultHub, MedicService::class.java)
+        retrofitService( retrofit(BASE_URL_CONSULT_HUB), MedicService::class.java)
     }
-/*
-    val otherService = ConsultHubApi.retrofitService( retrofitPostalCode, PatientService::class.java) */
+    val otherService = retrofitService(retrofit(BASE_URL_POSTAL_CODE), MedicService::class.java)
 }

@@ -30,13 +30,18 @@ class MedicViewModel: ViewModel() {
             isLoading = true
         )
         viewModelScope.launch(Dispatchers.IO) {
-
-            val medics = ConsultHubApi.retrofitMedicService.getMedics()
-            internalState.value = internalState.value.copy(
-                isLoading = false,
-                error = if (medics.isSuccessful) null else RuntimeException("NO ENCONTRE LISTA DE MEDICOS"),
-                medicList = medics.body() ?: emptyList()
-            )
+            try {
+                val medics = ConsultHubApi.retrofitMedicService.getMedics()
+                internalState.value = internalState.value.copy(
+                    isLoading = false,
+                    error = if (medics.isSuccessful) null else RuntimeException("NO ENCONTRE LISTA DE MEDICOS"),
+                    medicList = medics.body() ?: emptyList()
+                )
+            } catch (ex: Exception) {
+                internalState.value = internalState.value.copy(
+                    error = RuntimeException("Failure: ${ex.message}") // ex
+                )
+            }
         }
     }
 }
