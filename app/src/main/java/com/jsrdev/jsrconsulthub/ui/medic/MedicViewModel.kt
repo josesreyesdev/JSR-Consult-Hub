@@ -30,6 +30,7 @@ class MedicViewModel: ViewModel() {
             isLoading = true
         )
         viewModelScope.launch(Dispatchers.IO) {
+
             val medics = ConsultHubApi.retrofitMedicService.getMedics()
             internalState.value = internalState.value.copy(
                 isLoading = false,
