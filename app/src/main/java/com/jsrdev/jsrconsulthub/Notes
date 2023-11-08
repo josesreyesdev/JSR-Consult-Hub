@@ -1,0 +1,45 @@
+core:
+->Models: Puedes colocar modelos de datos compartidos aquí, como entidades de base de datos o
+          clases de datos comunes que se utilizan en toda la aplicación.
+->Utils: Clases de utilidad que se utilizan en diferentes partes de la aplicación, como herramientas
+         para la gestión de hilos, formateo de fechas, manejo de errores, etc.
+->Base Classes: Clases base para actividades, fragmentos, vistas personalizadas u otros componentes compartidos.
+
+data: -> Provee la info, si la necesito de internet, de bd, de un fichero, etc.
+->Repositories: Define interfaces y clases concretas que manejan la obtención y almacenamiento de datos.
+                Por ejemplo, un repositorio puede obtener datos de una fuente local (base de datos) o remota (API).
+->Data Sources: Implementa clases para acceder a fuentes de datos específicas, como bases de datos (Room),
+                servicios web (Retrofit), o almacenamiento en la nube (Firebase).
+->Mappers: Clases para mapear entre modelos de datos específicos de la fuente de datos y modelos de dominio.
+
+domain: -> No debe haber nada de android, solo lógica de negocio
+->Use Cases/Interactors: Define casos de uso de tu aplicación. Estos casos de uso representan
+                         las acciones que la aplicación puede realizar y actúan como una capa intermedia
+                         entre la capa de presentación (UI) y la capa de datos. Los casos de uso encapsulan
+                         la lógica de negocio.
+->Modelos de Dominio: Define modelos de dominio que representan los conceptos clave de tu aplicación,
+                      independientes de los detalles de implementación.
+->Repositorio de Interfaces: Define las interfaces de los repositorios que se utilizan en la capa
+                             de dominio. Estas interfaces proporcionan una abstracción de los datos y
+                             permiten la inversión de dependencias.
+
+ui:
+->Activities y Fragments: Coloca las actividades y fragmentos de tu aplicación aquí.
+                          Estos componentes interactúan con el usuario y se comunican con la capa de dominio
+                          a través de los casos de uso.
+->ViewModels: Las clases ViewModel de Android se utilizan para gestionar la lógica de presentación y
+              mantener los datos relacionados con la UI. Estas clases se comunican con los casos de uso para
+              obtener y presentar datos en la interfaz de usuario.
+->Adapters: Los adaptadores se utilizan comúnmente en la capa de interfaz de usuario (UI) para mostrar datos
+            en vistas como RecyclerViews o ListViews.
+
+di:
+->Modules: Define módulos que proporcionan instancias de las clases concretas que se inyectarán en tu aplicación.
+           Puedes tener módulos separados para la configuración de la red, la base de datos, y otros componentes.
+->Componentes: Define componentes de Dagger (u otra biblioteca de inyección de dependencias) que indican cómo
+               y dónde se deben inyectar las dependencias. Puedes tener componentes de aplicación, componentes de
+               actividad, componentes de fragmento, etc., según las necesidades de tu proyecto.
+->ViewModelFactory: Si estás utilizando ViewModel de Android con inyección de dependencias, puedes tener
+                    una factoría personalizada para crear instancias de tus ViewModels inyectando sus dependencias.
+->Scope Annotations: Si utilizas ámbitos personalizados para la inyección de dependencias, puedes definir
+                     anotaciones de ámbito en este paquete.

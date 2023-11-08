@@ -2,6 +2,7 @@ package com.jsrdev.jsrconsulthub.data.network.api
 
 import com.jsrdev.jsrconsulthub.core.Constants.BASE_URL_CONSULT_HUB
 import com.jsrdev.jsrconsulthub.core.Constants.BASE_URL_POSTAL_CODE
+import com.jsrdev.jsrconsulthub.data.network.services.MedicService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
@@ -9,7 +10,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
-fun provideRetrofit(url: String): Retrofit {
+private fun provideRetrofit(url: String): Retrofit {
     return Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .baseUrl(url)
@@ -25,9 +26,9 @@ object ConsultHubApi {
         return retrofit.create(serviceClass)
     }
 
-    /*val retrofitService: ConsultHubApiService by lazy {
-        retrofitService( retrofitConsultHub, ConsultHubApiService::class.java)
+    val retrofitMedicService: MedicService by lazy {
+        retrofitService( retrofitConsultHub, MedicService::class.java)
     }
-
-    val otherService = ConsultHubApi.retrofitService( retrofitPostalCode, OtherService::class.java) */
+/*
+    val otherService = ConsultHubApi.retrofitService( retrofitPostalCode, PatientService::class.java) */
 }
