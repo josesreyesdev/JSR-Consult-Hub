@@ -34,12 +34,12 @@ class MedicViewModel: ViewModel() {
                 val medics = ConsultHubApi.retrofitMedicService.getMedics()
                 internalState.value = internalState.value.copy(
                     isLoading = false,
-                    error = if (medics.isSuccessful) null else RuntimeException("NO ENCONTRE LISTA DE MEDICOS"),
+                    error = if (medics.isSuccessful) null else RuntimeException("NOT FOUND MEDIC LIST"),
                     medicList = medics.body() ?: emptyList()
                 )
             } catch (ex: Exception) {
                 internalState.value = internalState.value.copy(
-                    error = RuntimeException("Failure: ${ex.message}") // ex
+                    error = RuntimeException("Failure: ${ex.message}") // error = ex
                 )
             }
         }

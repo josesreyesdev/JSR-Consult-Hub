@@ -86,4 +86,6 @@
     <string name="time_text">%d: %d %s</string>
     <string name="specialty">Especialidad</string>
     <string name="select_specialty_content">Selecciona una especialidad</string>
+    <string name="edit">Editar</string>
+    <string name="deactive_profile">Desactivar perfil</string>
 </resources>
