@@ -23,7 +23,11 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="datePickerTheme" parent="android:Theme.Material.Light.Dialog">
+    <style name="DatePickerTheme" parent="android:Theme.Material.Light.Dialog">
         <item name="android:colorAccent">#A493C3</item>
+    </style>
+
+    <style name="Widget.JSRConsultHub.Divider" parent="">
+        <item name="android:background">?attr/dividerVertical</item>
     </style>
 </resources>
