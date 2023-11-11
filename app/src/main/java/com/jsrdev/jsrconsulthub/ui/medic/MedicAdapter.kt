@@ -1,6 +1,5 @@
 package com.jsrdev.jsrconsulthub.ui.medic
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -34,12 +33,6 @@ class MedicAdapter(
 
     override fun getItemCount() : Int = medicList.size
 
-    // filter
-    fun updateMedic(medicList: List<GetMedicResponse>) {
-        this.medicList = medicList
-        notifyDataSetChanged()
-    }
-
     companion object {
         private val DiffCallback = object: DiffUtil.ItemCallback<GetMedicResponse>() {
             override fun areItemsTheSame(
@@ -56,6 +49,29 @@ class MedicAdapter(
                 return oldItem.id == newItem.id
             }
 
+        }
+    }
+
+    // filter
+    fun updateMedic(newMedicList: List<GetMedicResponse>) {
+        val diffResult = DiffUtil.calculateDiff(MedicDiffCallback(medicList, newMedicList))
+        medicList = newMedicList
+        diffResult.dispatchUpdatesTo(this)
+    }
+
+    class MedicDiffCallback(
+        private val oldList: List<GetMedicResponse>,
+        private val newList: List<GetMedicResponse>
+    ) : DiffUtil.Callback() {
+        override fun getOldListSize(): Int = oldList.size
+        override fun getNewListSize(): Int = newList.size
+
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition].id == newList[newItemPosition].id
+        }
+
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition] == newList[newItemPosition]
         }
     }
 
