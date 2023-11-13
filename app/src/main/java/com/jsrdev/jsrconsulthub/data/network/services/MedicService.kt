@@ -1,6 +1,7 @@
 package com.jsrdev.jsrconsulthub.data.network.services
 
 import com.jsrdev.jsrconsulthub.data.network.model.medic.AddMedicRequest
+import com.jsrdev.jsrconsulthub.data.network.model.medic.GetMedicResponse
 import com.jsrdev.jsrconsulthub.data.network.model.medic.MedicResponse
 import com.jsrdev.jsrconsulthub.data.network.model.medic.UpdateMedicRequest
 import retrofit2.Response
@@ -18,7 +19,7 @@ interface MedicService {
     suspend fun addMedic(@Body addMedicRequest: AddMedicRequest) : MedicResponse
 
     @GET("medics/get-active")
-    suspend fun getMedics(@Query("size") size: Int = 100): Response<List<MedicResponse>>
+    suspend fun getMedics(@Query("size") size: Int = 100): Response<List<GetMedicResponse>>
 
     @GET("medics/register/{id}")
     suspend fun getMedicById(@Path("id") id: Int): Response<MedicResponse>

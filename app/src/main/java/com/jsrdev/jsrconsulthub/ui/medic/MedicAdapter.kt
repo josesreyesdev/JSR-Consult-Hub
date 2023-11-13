@@ -15,7 +15,7 @@ class MedicAdapter(
     class MedicViewHolder(private var binding: ItemMedicBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(medic: GetMedicResponse) {
             binding.medicName.text = medic.name
-            binding.specialty.text = medic.specialty.toString()
+            binding.specialty.text = medic.specialty.name
             binding.document.text = medic.document
             binding.email.text = medic.email
         }
