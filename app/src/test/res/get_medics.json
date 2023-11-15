@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "name": "josee",
+    "specialty": "CARDIOLOGIA",
+    "document": "12321",
+    "email": "josee@example.com"
+  },
+  {
+    "id": "2",
+    "name": "mario mario",
+    "specialty": "ORTOPEDIA",
+    "document": "212121",
+    "email": "mariomario@example.com"
+  },
+  {
+    "id": "3",
+    "name": "Yudith",
+    "specialty": "GINECOLOGIA",
+    "document": "31231",
+    "email": "yudith@example.com"
+  },
+  {
+    "id": "4",
+    "name": "Artemisa",
+    "specialty": "PEDIATRIA",
+    "document": "141414",
+    "email": "artemisa@example.com"
+  },
+  {
+    "id": "5",
+    "name": "Judith Mtz",
+    "specialty": "ODONTOLOGIA",
+    "document": "44444",
+    "email": "yudithmtz@example.com"
+  }
+]

@@ -28,5 +28,5 @@ interface MedicService {
     suspend fun updateMedic(@Body updateMedic: UpdateMedicRequest) : MedicResponse
 
     @DELETE("medics/{id}")
-    suspend fun deactiveMedic(@Path("id") id: Int)
+    suspend fun deactivateMedic(@Path("id") id: Int)
 }

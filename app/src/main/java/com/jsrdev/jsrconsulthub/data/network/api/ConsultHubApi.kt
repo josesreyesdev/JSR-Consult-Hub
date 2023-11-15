@@ -24,7 +24,7 @@ object ConsultHubApi {
     }
 
     val retrofitMedicService: MedicService by lazy {
-        retrofitService( retrofit(BASE_URL_CONSULT_HUB), MedicService::class.java)
+        retrofitService(retrofit(BASE_URL_CONSULT_HUB), MedicService::class.java)
     }
     val otherService = retrofitService(retrofit(BASE_URL_POSTAL_CODE), MedicService::class.java)
 }
