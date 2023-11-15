@@ -49,7 +49,7 @@ class MedicApiServiceTest : BaseTest() {
             medicApiResponse.body()?.isNotEmpty()?.let { assertTrue("The list was empty", it) }
 
             // verificar que algunos datos sean correctas
-            assertEquals("The IDs did not match", "5", medicApiResponse.body()?.get(4)?.id)
+            assertEquals("The IDs did not match", 5, medicApiResponse.body()?.get(4)?.id)
         }
     }
 }
