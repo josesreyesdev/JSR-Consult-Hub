@@ -55,6 +55,7 @@ class MedicFragment : Fragment() {
     }
 
     private fun invalidate(state: MedicState) {
+
         if (state.isLoading) {
             binding.imageState.visibility = View.VISIBLE // img loading visible
             binding.imageState.setImageResource(R.drawable.loading_animation)
