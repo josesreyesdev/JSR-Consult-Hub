@@ -17,6 +17,7 @@ private val retrofit: (String) -> Retrofit = { url: String ->
         .build()
 }
 
+// Module
 object ConsultHubApi {
 
     private fun <T> retrofitService( retrofit: Retrofit, serviceClass: Class<T>): T {

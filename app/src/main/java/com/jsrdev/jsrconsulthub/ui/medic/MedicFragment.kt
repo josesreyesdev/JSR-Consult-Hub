@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jsrdev.jsrconsulthub.R
@@ -45,6 +46,7 @@ class MedicFragment : Fragment() {
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collectLatest { state ->
+                    Log.i(TAG, state.toString())
                     invalidate(state)
                 }
             }
@@ -64,6 +66,7 @@ class MedicFragment : Fragment() {
         if (state.success.isNotEmpty()) {
             binding.imageState.visibility = View.GONE // img loading invisible
             binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
             adapterMedic(state.success)
         }
 
@@ -75,7 +78,9 @@ class MedicFragment : Fragment() {
 
     private fun adapterMedic( medicList: List<GetMedicResponse>) {
         val recyclerView = binding.recyclerView
-        //recyclerView.adapter = MedicAdapter{it, medicList}
+
+        recyclerView.adapter = MedicAdapter( medicList)
+        Log.i(TAG, " Enviar a adapter$medicList")
         recyclerView.addItemDecoration(
             DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
         )

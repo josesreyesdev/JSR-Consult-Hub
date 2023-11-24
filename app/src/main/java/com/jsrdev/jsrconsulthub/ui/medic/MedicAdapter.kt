@@ -9,8 +9,8 @@ import com.jsrdev.jsrconsulthub.data.network.model.medic.GetMedicResponse
 import com.jsrdev.jsrconsulthub.databinding.ItemMedicBinding
 
 class MedicAdapter(
-    private val onMedicClicked: (GetMedicResponse) -> Unit,
-    private var medicList: List<GetMedicResponse>
+    /*private val onMedicClicked: (GetMedicResponse) -> Unit, */
+    private var medicList: List<GetMedicResponse> /*= emptyList()*/
 ) : ListAdapter<GetMedicResponse, MedicAdapter.MedicViewHolder>(DiffCallback) {
     class MedicViewHolder(private var binding: ItemMedicBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(medic: GetMedicResponse) {
@@ -27,11 +27,11 @@ class MedicAdapter(
 
     override fun onBindViewHolder(holder: MedicViewHolder, position: Int) {
         val current = getItem(position)
-        holder.itemView.setOnClickListener { onMedicClicked(current) }
+        holder.itemView.setOnClickListener { /*onMedicClicked(current) */}
         holder.bind(current)
     }
 
-    override fun getItemCount() : Int = medicList.size
+    //override fun getItemCount() : Int = medicList.size
 
     companion object {
         private val DiffCallback = object: DiffUtil.ItemCallback<GetMedicResponse>() {
