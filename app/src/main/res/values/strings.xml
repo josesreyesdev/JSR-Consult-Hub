@@ -95,4 +95,9 @@
     <string name="add_new_item">Agregar</string>
     <string name="search">Buscar…</string>
     <string name="image_state">Imagen de Estado</string>
+
+    <!-- BottomBar -->
+    <string name="medics">Medicos</string>
+    <string name="patients">Pacientes</string>
+    <string name="consults">Consultas</string>
 </resources>

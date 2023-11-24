@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav_graph.xml"
+    app:startDestination="@id/medicFragment">
+
+    <fragment
+        android:id="@+id/medicFragment"
+        android:name="com.jsrdev.jsrconsulthub.ui.medic.MedicFragment"
+        android:label="fragment_medic"
+        tools:layout="@layout/fragment_medic" >
+        <action
+            android:id="@+id/action_medicFragment_to_addMedicFragment"
+            app:destination="@id/addMedicFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMedicFragment"
+        android:name="com.jsrdev.jsrconsulthub.ui.medic.AddMedicFragment"
+        android:label="fragment_add_medic"
+        tools:layout="@layout/fragment_add_medic" />
+    <fragment
+        android:id="@+id/patientFragment"
+        android:name="com.jsrdev.jsrconsulthub.ui.patient.PatientFragment"
+        android:label="fragment_patient"
+        tools:layout="@layout/fragment_patient" >
+        <action
+            android:id="@+id/action_patientFragment_to_addPatientFragment"
+            app:destination="@id/addPatientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPatientFragment"
+        android:name="com.jsrdev.jsrconsulthub.ui.patient.AddPatientFragment"
+        android:label="fragment_add_patient"
+        tools:layout="@layout/fragment_add_patient" />
+    <fragment
+        android:id="@+id/consultFragment"
+        android:name="com.jsrdev.jsrconsulthub.ui.consult.ConsultFragment"
+        android:label="fragment_consult"
+        tools:layout="@layout/fragment_consult" >
+        <action
+            android:id="@+id/action_consultFragment_to_addConsultFragment"
+            app:destination="@id/addConsultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addConsultFragment"
+        android:name="com.jsrdev.jsrconsulthub.ui.consult.AddConsultFragment"
+        android:label="fragment_add_consult"
+        tools:layout="@layout/fragment_add_consult" />
+</navigation>

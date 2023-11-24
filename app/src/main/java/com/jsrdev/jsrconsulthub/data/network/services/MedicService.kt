@@ -8,6 +8,7 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
@@ -19,7 +20,10 @@ interface MedicService {
     suspend fun addMedic(@Body addMedicRequest: AddMedicRequest) : MedicResponse
 
     @GET("medics/get-active")
-    suspend fun getMedics(@Query("size") size: Int = 100): Response<List<GetMedicResponse>>
+    suspend fun getMedics(
+        @Header("Authorization") token: String,
+        @Query("size") size: Int = 100
+    ): Response<List<GetMedicResponse>>
 
     @GET("medics/register/{id}")
     suspend fun getMedicById(@Path("id") id: Int): Response<MedicResponse>
