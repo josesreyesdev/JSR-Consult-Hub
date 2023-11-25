@@ -10,7 +10,7 @@ import com.jsrdev.jsrconsulthub.databinding.ItemMedicBinding
 
 class MedicAdapter(
     /*private val onMedicClicked: (GetMedicResponse) -> Unit, */
-    private var medicList: List<GetMedicResponse> /*= emptyList()*/
+    private var medicList: List<GetMedicResponse> = emptyList()
 ) : ListAdapter<GetMedicResponse, MedicAdapter.MedicViewHolder>(DiffCallback) {
     class MedicViewHolder(private var binding: ItemMedicBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(medic: GetMedicResponse) {
@@ -30,8 +30,6 @@ class MedicAdapter(
         holder.itemView.setOnClickListener { /*onMedicClicked(current) */}
         holder.bind(current)
     }
-
-    //override fun getItemCount() : Int = medicList.size
 
     companion object {
         private val DiffCallback = object: DiffUtil.ItemCallback<GetMedicResponse>() {

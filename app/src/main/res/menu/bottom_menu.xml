@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/item_medics"
-        android:name="com.jsrdev.jsrconsulthub.ui.medic.ConsultFragment"
+        android:id="@+id/medicFragment"
         android:title="@string/medics"
         android:icon="@drawable/ic_medic"
         />
     <item
-        android:id="@+id/item_patients"
-        android:name="com.jsrdev.jsrconsulthub.ui.patient.PatientFragment"
+        android:id="@+id/patientFragment"
         android:title="@string/patients"
         android:icon="@drawable/ic_patient"
         />
     <item
-        android:id="@+id/item_consults"
-        android:name="com.jsrdev.jsrconsulthub.ui.consult.ConsultFragment"
+        android:id="@+id/consultFragment"
         android:title="@string/consults"
         android:icon="@drawable/ic_calendar"
         />

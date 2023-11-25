@@ -11,7 +11,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jsrdev.jsrconsulthub.R
@@ -77,9 +76,11 @@ class MedicFragment : Fragment() {
     }
 
     private fun adapterMedic( medicList: List<GetMedicResponse>) {
-        val recyclerView = binding.recyclerView
 
-        recyclerView.adapter = MedicAdapter( medicList)
+        adapter = MedicAdapter(medicList)
+
+        val recyclerView = binding.recyclerView
+        recyclerView.adapter = adapter
         Log.i(TAG, " Enviar a adapter$medicList")
         recyclerView.addItemDecoration(
             DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
