@@ -38,8 +38,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun initNavigation() {
-        val navHostFragment = requireActivity().supportFragmentManager
-            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostFragment = childFragmentManager
+            .findFragmentById(R.id.home_nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
         binding.bottomNavView.setupWithNavController(navController)
