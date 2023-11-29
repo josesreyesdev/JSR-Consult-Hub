@@ -45,7 +45,6 @@ class MedicFragment : Fragment() {
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collectLatest { state ->
-                    Log.i(TAG, state.toString())
                     invalidate(state)
                 }
             }
@@ -75,16 +74,21 @@ class MedicFragment : Fragment() {
         }
     }
 
-    private fun adapterMedic( medicList: List<GetMedicResponse>) {
+    private fun adapterMedic(medicList: List<GetMedicResponse>) {
 
         adapter = MedicAdapter(medicList)
+        /*adapter = MedicAdapter2({
+            val action = navigate.action
+            view.findNavController().navigate(action)
+        }) */
 
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
-        Log.i(TAG, " Enviar a adapter$medicList")
         recyclerView.addItemDecoration(
             DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
         )
+
+        adapter.submitList(medicList)
     }
     private fun searchMedic(listMedics: List<GetMedicResponse>) {
         binding.searchEditText.addTextChangedListener { medicFilter ->
