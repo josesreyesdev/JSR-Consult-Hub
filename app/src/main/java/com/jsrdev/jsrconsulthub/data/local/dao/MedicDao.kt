@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface MedicDao {
 
-    @Query("SELECT * FROM medics ORDER BY name ASC")
+    @Query("SELECT * FROM medics WHERE active = 1 ORDER BY name ASC")
     fun getAllMedics(): Flow<List<Medic>>
 
 }

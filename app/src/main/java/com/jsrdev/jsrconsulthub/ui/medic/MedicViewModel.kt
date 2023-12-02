@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jsrdev.jsrconsulthub.core.Constants
-import com.jsrdev.jsrconsulthub.data.network.api.ConsultHubApi
 import com.jsrdev.jsrconsulthub.data.network.model.medic.GetMedicResponse
 import com.jsrdev.jsrconsulthub.data.network.services.MedicService
 import com.jsrdev.jsrconsulthub.data.repository.MedicModule
@@ -51,3 +50,15 @@ class MedicViewModel(
         }
     }
 }
+
+/*
+* class MedicViewModelFactory(private val medicDao: MedicDao) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(MedicViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return MedicViewModel(medicDao) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class / no se encontro la clase viewModel")
+    }
+}
+* */

@@ -28,6 +28,9 @@ class MedicFragment : Fragment() {
     private lateinit var adapter: MedicAdapter
 
     private val viewModel: MedicViewModel by activityViewModels()
+    /*private val viewModel: MedicViewModel by activityViewModels {
+        MedicViewModelFactory((activity?.application as MedicViewModelFactory).database.medicDao())
+    } */
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -78,7 +81,9 @@ class MedicFragment : Fragment() {
 
         adapter = MedicAdapter(medicList)
         /*adapter = MedicAdapter2({
-            val action = navigate.action
+            val action = DetailMedicFragmentDirections.actionDetailMedicFragmentToDetailMedicFragment(
+                id = it.id
+            )
             view.findNavController().navigate(action)
         }) */
 
@@ -93,8 +98,8 @@ class MedicFragment : Fragment() {
     private fun searchMedic(listMedics: List<GetMedicResponse>) {
         binding.searchEditText.addTextChangedListener { medicFilter ->
             Log.i(TAG, medicFilter.toString())
-            val medicFiltered = listMedics.filter { medic ->
-                medic.name.lowercase().contains(medicFilter.toString().lowercase())
+            val medicFiltered: List<GetMedicResponse> = listMedics.filter { medic ->
+                medic.name?.lowercase()?.contains(medicFilter.toString().lowercase()) ?: false
             }
             adapter.updateMedic(medicFiltered)
         }

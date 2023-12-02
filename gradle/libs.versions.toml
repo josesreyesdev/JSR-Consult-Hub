@@ -1,5 +1,6 @@
 [versions]
 agp = "8.3.0-alpha07"
+coil = "2.2.2"
 converter-moshi = "2.9.0"
 core-testing = "2.2.0"
 kotlin = "1.9.0"
@@ -16,7 +17,7 @@ mockwebserver = "4.9.1"
 moshi-kotlin = "1.9.3"
 navigation-ui-ktx = "2.7.5"
 navigation-fragment-ktx = "2.7.5"
-room-compiler = "2.6.0"
+room-compiler = "2.6.1"
 
 [libraries]
 androidx-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "core-testing" }
@@ -27,6 +28,7 @@ androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fr
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-compiler" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room-compiler" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-compiler" }
+coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "converter-moshi" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
