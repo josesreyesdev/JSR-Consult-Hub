@@ -71,6 +71,9 @@ dependencies {
     // Retrofit with Moshi Converter
     implementation(libs.converter.moshi)
 
+    // Coil
+    implementation(libs.coil)
+
     // room
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.runtime)

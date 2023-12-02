@@ -1,86 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginBottom="@dimen/space_small"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp"
+    app:strokeColor="@color/cardview_light_background"
+    app:strokeWidth="1dp">
 
-    <TextView
-        android:id="@+id/medicName"
-        style="@style/JSRConsultHub.TextStyle.SubTitle"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/space_small"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="José SR."/>
+        android:padding="@dimen/space_medium">
 
-    <LinearLayout
-        android:id="@+id/linearSpecialtyAndDocument"
-        android:orientation="horizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/medicName">
+        <ImageView
+            android:id="@+id/userImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/ic_patient"
+            tools:ignore="ImageContrastCheck"/>
 
         <TextView
-            android:id="@+id/specialty"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:layout_width="wrap_content"
+            android:id="@+id/medicName"
+            style="@style/JSRConsultHub.TextStyle.SubTitle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="Pediatra"/>
+            android:layout_marginStart="@dimen/space_medium"
+            android:layout_marginBottom="@dimen/space_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userImage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="José SR." />
 
-        <View
-            android:id="@+id/divider"
-            style="@style/Widget.JSRConsultHub.Divider"
-            android:layout_width="2dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="@dimen/space_small"
-            android:layout_marginEnd="@dimen/space_small"/>
-
-        <TextView
-            android:id="@+id/document"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/linearSpecialtyAndDocument"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="Document:123456-AC" />
-    </LinearLayout>
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/medicName"
+            app:layout_constraintTop_toBottomOf="@id/medicName">
 
-    <TextView
-        android:id="@+id/email"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_small"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearSpecialtyAndDocument"
-        tools:text="email@example.com"/>
+            <TextView
+                android:id="@+id/specialty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                tools:text="Pediatra" />
 
-    <Button
-        android:id="@+id/edit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/space_small"
-        android:text="@string/edit"
-        style="?attr/materialButtonOutlinedStyle"
-        app:layout_constraintEnd_toStartOf="@id/deactivateProfile"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/deactivateProfile"
-        tools:ignore="VisualLintButtonSize" />
+            <View
+                android:id="@+id/divider"
+                style="@style/Widget.JSRConsultHub.Divider"
+                android:layout_width="2dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="@dimen/space_small"
+                android:layout_marginEnd="@dimen/space_small" />
 
-    <Button
-        android:id="@+id/deactivateProfile"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_small"
-        android:text="@string/deactivate_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/edit"
-        app:layout_constraintTop_toBottomOf="@id/email"
-        tools:ignore="VisualLintButtonSize" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/document"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                tools:text="Document:123456-AC" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
