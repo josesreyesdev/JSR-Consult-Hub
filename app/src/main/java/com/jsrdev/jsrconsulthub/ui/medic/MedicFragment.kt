@@ -1,7 +1,6 @@
 package com.jsrdev.jsrconsulthub.ui.medic
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jsrdev.jsrconsulthub.R
 import com.jsrdev.jsrconsulthub.data.network.model.medic.GetMedicResponse
@@ -89,15 +87,14 @@ class MedicFragment : Fragment() {
 
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
-        recyclerView.addItemDecoration(
+        /*recyclerView.addItemDecoration(
             DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-        )
+        )*/
 
         adapter.submitList(medicList)
     }
     private fun searchMedic(listMedics: List<GetMedicResponse>) {
         binding.searchEditText.addTextChangedListener { medicFilter ->
-            Log.i(TAG, medicFilter.toString())
             val medicFiltered: List<GetMedicResponse> = listMedics.filter { medic ->
                 medic.name?.lowercase()?.contains(medicFilter.toString().lowercase()) ?: false
             }
