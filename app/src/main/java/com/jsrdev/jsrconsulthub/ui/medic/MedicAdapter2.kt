@@ -16,7 +16,6 @@ class MedicAdapter2(private val onItemClicked: (GetMedicResponse) -> Unit)
             binding.medicName.text = medic.name
             binding.specialty.text = medic.specialty.name
             binding.document.text = medic.document
-            binding.email.text = medic.email
         }
     }
 

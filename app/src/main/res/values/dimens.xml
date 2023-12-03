@@ -5,6 +5,7 @@
     <dimen name="space_large">24dp</dimen>
     <dimen name="space_xlarge">36dp</dimen>
     <dimen name="space_extra_big">56dp</dimen>
+    <dimen name="space_extra_bigger">72dp</dimen>
 
     <dimen name="text_size_big">28sp</dimen>
     <dimen name="text_size_medium">24sp</dimen>

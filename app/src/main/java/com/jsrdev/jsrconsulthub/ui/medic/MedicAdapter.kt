@@ -1,5 +1,6 @@
 package com.jsrdev.jsrconsulthub.ui.medic
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.net.toUri
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.jsrdev.jsrconsulthub.R
+import com.jsrdev.jsrconsulthub.core.Constants
 import com.jsrdev.jsrconsulthub.data.network.model.medic.GetMedicResponse
 import com.jsrdev.jsrconsulthub.databinding.ItemMedicBinding
 
@@ -17,7 +19,8 @@ class MedicAdapter(
 ) : ListAdapter<GetMedicResponse, MedicAdapter.MedicViewHolder>(DiffCallback) {
     class MedicViewHolder(private var binding: ItemMedicBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(medic: GetMedicResponse) {
-            val imgUrl = "https://img.freepik.com/vector-gratis/sintomas-virus-caracteres-atencion-medica-establecen-vector_53876-169030.jpg?t=st=1701473367~exp=1701473967~hmac=adcaec7736795d88e5b33da8cba0ae098806220c3cd272b132ff2a3af7be497e"
+            Log.i(TAG, medic.toString())
+            val imgUrl = Constants.TEMPORAL_URL_IMAGE
             imgUrl.let {
                 val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
                 binding.userImage.load(imgUri){
@@ -25,13 +28,9 @@ class MedicAdapter(
                     error(R.drawable.ic_broken_image)
                 }
             }
-            medic.name?.let { name ->
-                binding.medicName.text = name
-            }
+            medic.name?.let { name -> binding.medicName.text = name }
             binding.specialty.text = medic.specialty.name
-            medic.document?.let { document ->
-                binding.document.text = document
-            }
+            medic.document?.let { document -> binding.document.text = document }
         }
     }
 
