@@ -1,6 +1,5 @@
 package com.jsrdev.jsrconsulthub.ui.medic
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.net.toUri
@@ -19,8 +18,7 @@ class MedicAdapter(
 ) : ListAdapter<GetMedicResponse, MedicAdapter.MedicViewHolder>(DiffCallback) {
     class MedicViewHolder(private var binding: ItemMedicBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(medic: GetMedicResponse) {
-            Log.i(TAG, medic.toString())
-            val imgUrl = Constants.TEMPORAL_URL_IMAGE
+            val imgUrl: String = Constants.TEMPORAL_URL_IMAGE
             imgUrl.let {
                 val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
                 binding.userImage.load(imgUri){
@@ -28,7 +26,7 @@ class MedicAdapter(
                     error(R.drawable.ic_broken_image)
                 }
             }
-            medic.name?.let { name -> binding.medicName.text = name }
+            medic.name?.let { name -> binding.medicName.text = name}
             binding.specialty.text = medic.specialty.name
             medic.document?.let { document -> binding.document.text = document }
         }

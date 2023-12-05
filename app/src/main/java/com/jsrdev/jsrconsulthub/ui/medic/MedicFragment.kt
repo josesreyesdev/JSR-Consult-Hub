@@ -41,29 +41,34 @@ class MedicFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getMedics()
-
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collectLatest { state ->
                     invalidate(state)
+                    searchMedic(state.success)
                 }
             }
         }
+        //searchMedic(viewModel.state.value.success)
+    }
 
-        searchMedic(viewModel.state.value.success)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
 
+        // Limpiar el adaptador para liberar recursos
+        if (::adapter.isInitialized) adapter.submitList(null)
     }
 
     private fun invalidate(state: MedicState) {
 
         if (state.isLoading) {
-            binding.imageState.visibility = View.VISIBLE // img loading visible
+            binding.imageState.visibility = View.VISIBLE // visible
             binding.imageState.setImageResource(R.drawable.loading_animation)
         }
 
         if (state.success.isNotEmpty()) {
-            binding.imageState.visibility = View.GONE // img loading invisible
+            binding.imageState.visibility = View.GONE // invisible
             binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
             adapterMedic(state.success)
@@ -77,20 +82,17 @@ class MedicFragment : Fragment() {
 
     private fun adapterMedic(medicList: List<GetMedicResponse>) {
 
-        adapter = MedicAdapter(medicList)
-        /*adapter = MedicAdapter2({
+        if (!::adapter.isInitialized) {
+            adapter = MedicAdapter(medicList)
+            /*adapter = MedicAdapter2({
             val action = DetailMedicFragmentDirections.actionDetailMedicFragmentToDetailMedicFragment(
                 id = it.id
             )
             view.findNavController().navigate(action)
         }) */
 
-        val recyclerView = binding.recyclerView
-        recyclerView.adapter = adapter
-        /*recyclerView.addItemDecoration(
-            DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-        )*/
-
+            binding.recyclerView.adapter = adapter
+        }
         adapter.submitList(medicList)
     }
     private fun searchMedic(listMedics: List<GetMedicResponse>) {
