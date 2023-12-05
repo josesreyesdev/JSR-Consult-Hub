@@ -26,7 +26,11 @@ class MedicViewModel(
     private val internalState = MutableStateFlow(MedicState())
     val state: StateFlow<MedicState> = internalState
 
-    fun getMedics() {
+    init {
+        getMedics()
+    }
+
+    private fun getMedics() {
         internalState.value = internalState.value.copy(
             isLoading = true
         )
