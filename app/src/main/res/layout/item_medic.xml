@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/space_large"
+    app:cardElevation="4dp"
+    app:strokeWidth="1dp"
     app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,8 +16,8 @@
 
         <ImageView
             android:id="@+id/userImage"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             android:contentDescription="@null"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +30,8 @@
             style="@style/JSRConsultHub.TextStyle.SubTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_medium"
+            android:layout_marginTop="@dimen/space_small"
+            android:layout_marginStart="@dimen/space_small"
             android:layout_marginBottom="@dimen/space_small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/userImage"
@@ -39,6 +43,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/space_small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/medicName"
             app:layout_constraintTop_toBottomOf="@id/medicName">
@@ -65,5 +70,14 @@
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 tools:text="Document:123456-AC" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/linearSpecialtyAndDocument"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearSpecialtyAndDocument"
+            tools:text="email@example.com"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

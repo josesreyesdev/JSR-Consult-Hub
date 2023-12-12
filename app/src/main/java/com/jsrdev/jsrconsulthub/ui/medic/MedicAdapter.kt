@@ -18,17 +18,28 @@ class MedicAdapter(
 ) : ListAdapter<GetMedicResponse, MedicAdapter.MedicViewHolder>(DiffCallback) {
     class MedicViewHolder(private var binding: ItemMedicBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(medic: GetMedicResponse) {
+
+            medic.name?.let { name ->
+                binding.medicName.text = name
+            }
+            medic.specialty?.name.let{ specialty ->
+                binding.specialty.text = specialty
+            }
+            medic.document?.let {
+                    document -> binding.document.text = document
+            }
+            medic.email?.let {email ->
+                binding.email.text = email
+            }
+
             val imgUrl: String = Constants.TEMPORAL_URL_IMAGE
             imgUrl.let {
                 val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
-                binding.userImage.load(imgUri){
+                binding.userImage.load(imgUri) {
                     placeholder(R.drawable.loading_animation)
                     error(R.drawable.ic_broken_image)
                 }
             }
-            medic.name?.let { name -> binding.medicName.text = name}
-            binding.specialty.text = medic.specialty.name
-            medic.document?.let { document -> binding.document.text = document }
         }
     }
 
