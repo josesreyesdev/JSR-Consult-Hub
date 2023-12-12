@@ -25,10 +25,10 @@ class MedicAdapter(
             medic.specialty?.name.let{ specialty ->
                 binding.specialty.text = specialty
             }
-            medic.document?.let {
-                    document -> binding.document.text = document
+            medic.document?.let { document ->
+                binding.document.text = document
             }
-            medic.email?.let {email ->
+            medic.email?.let { email ->
                 binding.email.text = email
             }
 
