@@ -45,11 +45,10 @@ class MedicFragment : Fragment() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collectLatest { state ->
                     invalidate(state)
-                    searchMedic(state.success)
                 }
             }
         }
-        //searchMedic(viewModel.state.value.success)
+        searchMedic(viewModel.state.value.success)
     }
 
     override fun onDestroyView() {
