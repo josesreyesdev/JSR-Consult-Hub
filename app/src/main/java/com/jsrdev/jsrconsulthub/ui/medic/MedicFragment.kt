@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jsrdev.jsrconsulthub.R
 import com.jsrdev.jsrconsulthub.data.network.model.medic.GetMedicResponse
@@ -49,6 +50,11 @@ class MedicFragment : Fragment() {
             }
         }
         searchMedic(viewModel.state.value.success)
+
+        binding.add.setOnClickListener {
+            val action = MedicFragmentDirections.actionMedicFragmentToAddMedicFragment()
+            this.findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {
@@ -82,13 +88,10 @@ class MedicFragment : Fragment() {
     private fun adapterMedic(medicList: List<GetMedicResponse>) {
 
         if (!::adapter.isInitialized) {
-            adapter = MedicAdapter(medicList)
-            /*adapter = MedicAdapter2({
-            val action = DetailMedicFragmentDirections.actionDetailMedicFragmentToDetailMedicFragment(
-                id = it.id
-            )
-            view.findNavController().navigate(action)
-        }) */
+            adapter = MedicAdapter(medicList) {
+                val action = MedicFragmentDirections.actionMedicFragmentToMedicDetailFragment(it.id)
+                this.findNavController().navigate(action)
+            }
 
             binding.recyclerView.adapter = adapter
         }

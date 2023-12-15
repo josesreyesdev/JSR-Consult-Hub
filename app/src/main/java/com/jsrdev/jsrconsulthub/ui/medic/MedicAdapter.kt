@@ -13,8 +13,8 @@ import com.jsrdev.jsrconsulthub.data.network.model.medic.GetMedicResponse
 import com.jsrdev.jsrconsulthub.databinding.ItemMedicBinding
 
 class MedicAdapter(
-    /*private val onMedicClicked: (GetMedicResponse) -> Unit, */
-    private var medicList: List<GetMedicResponse> = emptyList()
+    private var medicList: List<GetMedicResponse> = emptyList(),
+    private val onMedicClicked: (GetMedicResponse) -> Unit
 ) : ListAdapter<GetMedicResponse, MedicAdapter.MedicViewHolder>(DiffCallback) {
     class MedicViewHolder(private var binding: ItemMedicBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(medic: GetMedicResponse) {
@@ -49,7 +49,7 @@ class MedicAdapter(
 
     override fun onBindViewHolder(holder: MedicViewHolder, position: Int) {
         val current = getItem(position)
-        holder.itemView.setOnClickListener { /*onMedicClicked(current) */}
+        holder.itemView.setOnClickListener { onMedicClicked(current) }
         holder.bind(current)
     }
 
