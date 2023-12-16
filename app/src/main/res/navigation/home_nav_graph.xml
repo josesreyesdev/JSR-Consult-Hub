@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_medicFragment_to_addMedicFragment"
             app:destination="@id/addMedicFragment" />
+        <action
+            android:id="@+id/action_medicFragment_to_medicDetailFragment"
+            app:destination="@id/medicDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/addMedicFragment"
@@ -47,4 +50,13 @@
         android:name="com.jsrdev.jsrconsulthub.ui.consult.AddConsultFragment"
         android:label="fragment_add_consult"
         tools:layout="@layout/fragment_add_consult" />
+    <fragment
+        android:id="@+id/medicDetailFragment"
+        android:name="com.jsrdev.jsrconsulthub.ui.medic.MedicDetailFragment"
+        android:label="fragment_medic_detail"
+        tools:layout="@layout/fragment_medic_detail" >
+        <argument
+            android:name="medic_id"
+            app:argType="integer" />
+    </fragment>
 </navigation>
