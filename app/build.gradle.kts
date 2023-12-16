@@ -66,6 +66,8 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
+    implementation (libs.okhttp)
+
     // Moshi
     implementation(libs.moshi.kotlin)
     // Retrofit with Moshi Converter

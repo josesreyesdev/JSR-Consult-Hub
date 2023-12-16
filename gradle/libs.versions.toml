@@ -15,8 +15,9 @@ material = "1.10.0"
 constraintlayout = "2.1.4"
 mockwebserver = "4.9.1"
 moshi-kotlin = "1.9.3"
-navigation-ui-ktx = "2.7.5"
-navigation-fragment-ktx = "2.7.5"
+navigation-ui-ktx = "2.7.6"
+navigation-fragment-ktx = "2.7.6"
+okhttp = "4.10.0"
 room-compiler = "2.6.1"
 
 [libraries]
@@ -39,6 +40,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "mockwebserver" }
 moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi-kotlin" }
+okhttp = { module = "im'com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
