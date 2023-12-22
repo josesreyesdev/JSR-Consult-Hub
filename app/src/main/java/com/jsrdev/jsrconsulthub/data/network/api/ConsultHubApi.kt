@@ -21,8 +21,6 @@ private val httpClient = OkHttpClient.Builder().apply {
             .build()
         chain.proceed(request)
     })
-
-    // Puedes agregar otros interceptores y configuraciones según tus necesidades
 }
 
 private val retrofit: (String) -> Retrofit = { url: String ->
