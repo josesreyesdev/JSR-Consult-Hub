@@ -31,7 +31,7 @@ class ConsultConverters {
 
     // Patient
     @TypeConverter
-    fun fromPatient(patient: Patient): Int {
+    fun fromPatient(patient: Patient): Int? {
         return patient.id
     }
 /*

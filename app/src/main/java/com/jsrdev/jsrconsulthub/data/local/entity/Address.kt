@@ -3,14 +3,14 @@ package com.jsrdev.jsrconsulthub.data.local.entity
 import androidx.room.ColumnInfo
 
 data class Address(
-    @ColumnInfo(name = "street") val street: String,
-    @ColumnInfo(name = "district") val district: String,
-    @ColumnInfo(name = "city") val city: String,
-    @ColumnInfo(name = "number") val number: Int,
-    @ColumnInfo(name = "complement") val complement: String,
-    @ColumnInfo(name = "urbanization") val urbanization: String,
-    @ColumnInfo(name = "postal_code") val postalCode: String,
-    @ColumnInfo(name = "province") val province: Int
+    @ColumnInfo(name = "street") val street: String? = null,
+    @ColumnInfo(name = "district") val district: String? = null,
+    @ColumnInfo(name = "city") val city: String? = null,
+    @ColumnInfo(name = "number") val number: Int? = null,
+    @ColumnInfo(name = "complement") val complement: String? = null,
+    @ColumnInfo(name = "urbanization") val urbanization: String? = null,
+    @ColumnInfo(name = "postal_code") val postalCode: String? = null,
+    @ColumnInfo(name = "province") val province: Int? = null
 ) {
     override fun toString(): String {
         return "$street, $district, $city, $number, $complement, $urbanization, $postalCode, $province"
