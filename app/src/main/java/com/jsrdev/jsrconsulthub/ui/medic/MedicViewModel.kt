@@ -46,9 +46,7 @@ class MedicViewModel(
             } catch (ex: Exception) {
                 Log.i(TAG, "error: $ex")
                 internalState.value = internalState.value.copy(
-                    isLoading = false,
                     error = RuntimeException("Failure: ${ex.message}"), // error = ex
-                    success = listOf()
                 )
             }
         }

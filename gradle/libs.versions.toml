@@ -1,5 +1,5 @@
 [versions]
-agp = "8.3.0-alpha07"
+agp = "8.4.0-alpha01"
 coil = "2.5.0"
 converter-moshi = "2.9.0"
 core-testing = "2.2.0"
