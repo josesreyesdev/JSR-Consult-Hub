@@ -75,6 +75,7 @@ dependencies {
 
     // Coil
     implementation(libs.coil)
+    implementation(libs.cronet.embedded)
 
     // room
     ksp(libs.androidx.room.compiler)
