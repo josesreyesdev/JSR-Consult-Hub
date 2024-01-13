@@ -16,11 +16,11 @@ class MockMedicRepository : MedicService {
     override suspend fun getMedics(token: String, size: Int): Response<List<GetMedicResponse>> {
         return Response.success(
             listOf(
-                GetMedicResponse(1, "San José", Specialty.CARDIOLOGIA, "31233", "sanjose@example.com"),
-                GetMedicResponse(2, "San Marcos", Specialty.PEDIATRIA, "41241", "sanmarcos@example.com"),
-                GetMedicResponse(3, "San Piter", Specialty.ORTOPEDIA, "624432", "sanpiter@example.com"),
-                GetMedicResponse(3, "Santa Maria", Specialty.GINECOLOGIA, "89890", "santamaria@example.com"),
-                GetMedicResponse(3, "Santa Ines", Specialty.ODONTOLOGIA, "88080", "santaines@example.com")
+                GetMedicResponse(1, "José S R", Specialty.CARDIOLOGIA, "31233", "sanjose@example.com"),
+                GetMedicResponse(2, "Marcos Enrique", Specialty.PEDIATRIA, "41241", "sanmarcos@example.com"),
+                GetMedicResponse(3, "Piter Mckalister", Specialty.ORTOPEDIA, "624432", "sanpiter@example.com"),
+                GetMedicResponse(3, "Rosa Maria", Specialty.GINECOLOGIA, "89890", "santamaria@example.com"),
+                GetMedicResponse(3, "Marco Aurelio Marco Aurelio", Specialty.ODONTOLOGIA, "88080", "santaines@example.com")
             )
         )
     }

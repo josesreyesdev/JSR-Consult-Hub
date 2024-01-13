@@ -1,5 +1,6 @@
 package com.jsrdev.jsrconsulthub.ui.medic
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.net.toUri
@@ -18,6 +19,8 @@ class MedicAdapter(
 ) : ListAdapter<GetMedicResponse, MedicAdapter.MedicViewHolder>(DiffCallback) {
     class MedicViewHolder(private var binding: ItemMedicBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(medic: GetMedicResponse) {
+
+            Log.i("MedicAdapter", "Response in adapter: $medic")
 
             medic.name?.let { name ->
                 binding.medicName.text = name
